@@ -5,6 +5,9 @@ import os
 
 main_dir = os.path.split(os.path.abspath(__file__))[0]
 data_dir = os.path.join(main_dir, "data")
+clock = pygame.time.Clock()
+dt = 0
+TARGET_FPS = 120
 
 def loadImage(name, colorkey=None, scale=1.0):
     fullname = os.path.join(data_dir, name)

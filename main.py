@@ -12,17 +12,19 @@ bg.fill("white")
 screen.blit(bg, (0,0))
 pygame.display.flip()
 
-clock = pygame.time.Clock()
+# clock = pygame.time.Clock()
 cursor = Fan()
-aviao = Aviao(clock)
+aviao = Aviao(utils.clock)
 sprites = pygame.sprite.RenderPlain((cursor, aviao))
 while True:
-    clock.tick(60)
-    print(clock.get_fps())
+    utils.dt = utils.clock.tick(utils.TARGET_FPS) / 1000
+    # print(utils.clock.get_fps())
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             raise SystemExit
+        aviao.mouse_pressed = pygame.mouse.get_pressed()[0]
+        
     # graficos
     
     sprites.update()
