@@ -3,10 +3,8 @@ from os import curdir
 import pygame;
 from aviao import *;
 from fan import *;
-import fan
 import utils
 import functools
-
 
 
 def checar_colisoes(objs):
